@@ -13,7 +13,7 @@ map<string, pair<string, int>> beacon_table;
 
 int main(int argc, char *argv[])
 {
-    //매개변수 확인(3개여야 함)
+    //매개변수 확인(2개여야 함)
     if (argc not_eq 2)
     {
         printf("syntax : airodump <interface>\n");
@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
     {
         struct pcap_pkthdr *header;
         const u_char *packet;
+        
         // reply 수신
         int res = pcap_next_ex(handle, &header, &packet);
         if (res == 0)
@@ -72,7 +73,6 @@ int main(int argc, char *argv[])
         // 출력
         system("clear");
         printf("BSSID\t\t\tBeacons\tESSID\n\n");
-
         for (auto &tmp : beacon_table)
         {
             printf("%s\t", tmp.first.c_str());
