@@ -15,7 +15,7 @@ struct ieee80211_radiotap_header
 #pragma pack(pop)
 
 #pragma pack(push, 1)
-struct ieee80211_beacon_header
+struct ieee80211_MAC_header
 {
     uint8_t type;
     uint8_t flags;
