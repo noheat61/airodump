@@ -54,8 +54,8 @@ int main(int argc, char *argv[])
         ieee80211_MAC_header *beacon = (ieee80211_MAC_header *)(packet + radiotap->it_len);
         if (beacon->type not_eq ieee80211_MAC_header::BEACON)
             continue;
-        fixed_parameters *fixed = (fixed_parameters *)(packet + radiotap->it_len + sizeof(struct ieee80211_beacon_header));
-        tagged_parameters *tagged = (tagged_parameters *)(packet + radiotap->it_len + sizeof(struct ieee80211_beacon_header) + 12);
+        fixed_parameters *fixed = (fixed_parameters *)(packet + radiotap->it_len + sizeof(struct ieee80211_MAC_header));
+        tagged_parameters *tagged = (tagged_parameters *)(packet + radiotap->it_len + sizeof(struct ieee80211_MAC_header) + 12);
 
         // beacon++
         string bssid = string(beacon->bssid);
