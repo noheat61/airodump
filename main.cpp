@@ -51,8 +51,8 @@ int main(int argc, char *argv[])
 
         // header
         ieee80211_radiotap_header *radiotap = (ieee80211_radiotap_header *)packet;
-        ieee80211_beacon_header *beacon = (ieee80211_beacon_header *)(packet + radiotap->it_len);
-        if (beacon->type not_eq ieee80211_beacon_header::BEACON)
+        ieee80211_MAC_header *beacon = (ieee80211_MAC_header *)(packet + radiotap->it_len);
+        if (beacon->type not_eq ieee80211_MAC_header::BEACON)
             continue;
         fixed_parameters *fixed = (fixed_parameters *)(packet + radiotap->it_len + sizeof(struct ieee80211_beacon_header));
         tagged_parameters *tagged = (tagged_parameters *)(packet + radiotap->it_len + sizeof(struct ieee80211_beacon_header) + 12);
